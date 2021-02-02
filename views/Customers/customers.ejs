@@ -1,0 +1,87 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+    <!-- Table css -->
+    <link href="public/plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css" rel="stylesheet" type="text/css"
+        media="screen">
+
+
+    <%- contentFor('body') %>
+
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Customers</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Details</li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <div class="table-rep-plugin">
+                                    <div class="table-responsive b-0" data-pattern="priority-columns">
+                                        
+                                <% if (data !=null) { %>
+
+                                        <table id="tech-companies-1" class="table  table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th data-priority="1">Name</th>
+                                                    <th data-priority="3">Email</th>
+                                                    <th data-priority="1">Mobile no.</th>
+                                                    <th data-priority="3">Password</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% data.forEach(result=> { %>
+
+                                                <tr>
+                                                    <th><%= result.id %> </th>
+                                                    <td><%= result.customername  %></td>
+                                                    <td><%= result.customeremail  %></td>
+                                                    <td><%= result.customermobile %></td>         
+                                                    <td><%= result.customerpassword%></td>
+                                                </tr>
+                                                <% }); %>
+                                            </tbody>
+                                        </table>
+                                        <% } %>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+        <%- contentFor('FooterJs') %>
+
+            <!-- Responsive-table-->
+            <script src="public/plugins/RWD-Table-Patterns/dist/js/rwd-table.min.js"></script>
+
+
+
+            <script>
+                $(function () {
+                    $('.table-responsive').responsiveTable({
+                        addDisplayAllBtn: 'btn btn-secondary'
+                    });
+                });
+            </script>

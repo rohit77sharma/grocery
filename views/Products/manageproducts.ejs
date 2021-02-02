@@ -1,0 +1,106 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+    <!-- Table css -->
+    <link href="public/plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css" rel="stylesheet" type="text/css"
+        media="screen">
+
+
+    <%- contentFor('body') %>
+
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Manage Products Table</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Manage Products Table</li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <div class="table-rep-plugin">
+                                    <div class="table-responsive b-0" data-pattern="priority-columns">
+                                        <% if (data !=null) { %>
+
+                                            <table id="tech-companies-1" class="table  table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>ID</th>
+                                                        <th>Product Name</th>
+                                                        <th data-priority="1">Type</th>
+                                                        <th data-priority="3">Main Category</th>
+                                                        <th data-priority="1">Sub-Category</th>
+                                                        <th data-priority="3">Unit</th>
+                                                        <th data-priority="3">Measurment</th>
+                                                        <th data-priority="6">Price</th>
+                                                        <th data-priority="6">Stock</th>
+                                                        <th data-priority="6">Discount Price</th>
+                                                        <th data-priority="6">Available</th>
+                                                        <th data-priority="6">Description</th>
+                                                        <th data-priority="6">Images</th>
+                                                        <th data-priority="6">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% data.forEach(result=> { %>
+
+                                                        <tr>
+                                                            <th> <%= result.id %> </th>
+                                                            <th><%= result.productname%></th><span class="co-name">Google Inc.</span>
+                                                            <td><%= result.type%></td>
+                                                            <td><%= result.maincategory%></td>
+                                                            <td><%= result.subcategory%></td>
+                                                            <td><%= result.unit%></td>
+                                                            <td><%= result.measurment%></td>
+                                                            <td><%= result.price%></td>
+                                                            <td><%= result.stock%></td>
+                                                            <td><%= result.discountprice%></td>
+                                                            <td><%= result.available%></td>
+                                                            <td><%= result.descrition%></td>
+                                                            <td><%= result.images%></td>
+                                                            <td><a href="productdelete?id=<%= result.id %>" ; style="color: blue;" onclick="return confirm('Are you sure?')">Delete</a>
+                                                                <a href="productedit?id=<%= result.id %>" ; style="color: blue; margin-left: 10px;" onclick="return confirm('Are you sure?')">Edit</a></td>
+                                                        </tr>
+                                                        <% }); %>
+                                                </tbody>
+                                            </table>
+                                            <% } %>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+        <%- contentFor('FooterJs') %>
+
+            <!-- Responsive-table-->
+            <script src="public/plugins/RWD-Table-Patterns/dist/js/rwd-table.min.js"></script>
+
+
+
+            <script>
+                $(function () {
+                    $('.table-responsive').responsiveTable({
+                        addDisplayAllBtn: 'btn btn-secondary'
+                    });
+                });
+            </script>

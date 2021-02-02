@@ -1,0 +1,91 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+
+    <%- contentFor('body') %>
+
+
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Units Tables</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Units Tables</li>
+                            </ol>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <h4 class="mt-0 header-title">Add Units</h4>
+                                <form action="/unitsubmit" method="POST">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Unit
+                                            Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="unitname"
+                                                placeholder="Add Unit Name">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Unit
+                                            Code</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="unitcode"
+                                                placeholder="Add Unit Code">
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="btn btn-danger btn-rounded btn-custom btn-block waves-effect waves-light">Submit
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+
+                    <div class="col-lg-6">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+
+                                <h4 class="mt-0 header-title">All Units </h4>
+
+                                <% if (data !=null) { %>
+
+                                    <table class="table table-hover mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>CODE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% data.forEach(result=> { %>
+
+                                                <tr>
+                                                    <th scope="row"><%= result.unitname%></th>
+                                                    <td><%= result.unitcode%></td>
+                                                </tr>
+                                                <% }); %>
+
+                                        </tbody>
+                                    </table>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+        <%- contentFor('FooterJs') %>

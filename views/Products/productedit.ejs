@@ -1,0 +1,149 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+
+
+    <%- contentFor('body') %>
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Edit Products</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Edit Products</li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <% if (data !=null) { %>
+                                    <form action="/producteditsubmit?id=<%= data.id %>" enctype="multipart/form-data" method="POST">
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Product Name</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="productname"
+                                                    value="<%= data.productname  %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Type</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="type">
+                                                    <option>
+                                                        <%= data.type%>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Main Category</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="maincategory">
+                                                    <option>
+                                                        <%= data.maincategory%>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Sub-Category</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="subcategory">
+                                                    <option>
+                                                        <%= data.subcategory%>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Unit</label>
+
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="unit">
+                                                    <option>
+                                                        <%= data.unit%>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Measurment</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="measurment"
+                                                    value="<%= data.measurment  %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Price</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" name="price" value="<%= data.price  %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Stock
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="number" name="stock"
+                                                    value="<%= data.stock  %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Discount
+                                                Price</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" name="discountprice"
+                                                    value="<%= data.discountprice  %>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="example-date-input"
+                                                class="col-sm-2 col-form-label">Availability</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="available">
+                                                    <option>
+                                                        <%= data.available %>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Description</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" name="descrition"
+                                                    value="<%= data.descrition%>">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-2 col-form-label">Image</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="file" name="images" accept="images/*">
+                                            </div>
+                                        </div>
+                                        <div class="form-group-row">
+                                            <button
+                                                class="btn btn-danger btn-rounded btn-custom btn-block waves-effect waves-light">Submit
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+
+        <%- contentFor('FooterJs') %>

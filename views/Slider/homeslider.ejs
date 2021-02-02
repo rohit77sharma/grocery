@@ -1,0 +1,78 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+    <!-- Dropzone css -->
+    <link href="public/plugins/dropzone/dist/dropzone.css" rel="stylesheet" type="text/css">
+
+
+
+    <%- contentFor('body') %>
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Home Slider Images</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Home Slider Upload</li>
+                            </ol>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <h4 class="mt-0 header-title">Upload Images</h4>
+                                <p>(Recomended size : 1024 X 512 pixels)</p>
+
+                                <form action="/homeslider" method="post">
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="file" name="homesilderimage" placeholder="images">
+                                        </div>
+                                    </div>
+                                    <div class="text-center m-t-15">
+                                        <button type="button" class="btn btn-primary waves-effect waves-light">Upload
+                                            </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <h4 class="mt-0 header-title">Uploaded Images</h4>
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Images</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">1</th>
+                                            <td>images</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div>
+            </div>
+        </div>
+
+
+        <%- contentFor('FooterJs') %>
+
+            <script src="public/plugins/dropzone/dist/dropzone.js"></script>

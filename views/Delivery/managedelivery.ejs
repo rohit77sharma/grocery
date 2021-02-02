@@ -1,0 +1,143 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+
+
+    <%- contentFor('body') %>
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Manage Delivery Boy's</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Delivery Boy Details</li>
+                            </ol>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <form action="/deliveryboydetails" method="POST">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="deliveryboyname" placeholder="Name"
+                                                type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Address</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="deliveryboyaddress"
+                                                placeholder="Addres">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Mobile Number</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="tel" name="deliveryboymobile"
+                                                placeholder="Mobile Number">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="email" name="deliveryboyemail"
+                                                placeholder="Email address">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="password" placeholder="Password"
+                                                type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label for="example-number-input" class="col-sm-2 col-form-label">Joining
+                                            Date</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="date" placeholder="Date"
+                                                name="deliveryboydate">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-datetime-local-input"
+                                            class="col-sm-2 col-form-label">Salery</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Salery"
+                                                name="deliveryboysalery">
+                                        </div>
+                                    </div>
+                                    <div class="form-group-row">
+                                        <button
+                                            class="btn btn-danger btn-rounded btn-custom btn-block waves-effect waves-light">Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <% if (data !=null) { %>
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>Mobile Number</th>
+                                        <th>Email</th>
+                                        <th>password</th>
+                                        <th>Joining Date</th>
+                                        <th>salery</th>
+                                        <th>Remove</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% data.forEach(result=> { %>
+
+                                    <tr>
+                                        <th><%= result.id %></th>
+                                        <td><%= result.deliveryboyname %></td>
+                                        <td><%= result.deliveryboyaddress %></td>
+                                        <td><%= result.deliveryboymobile %></td>
+                                        <td><%= result.deliveryboyemail%></td>
+                                        <td><%= result.password%></td>
+                                        <td><%= result.deliveryboydate%></td>
+                                        <td><%= result.deliveryboysalery%></td>
+                                        <td><a href="removedeliveryboy?id=<%= result.id %>" ; style="color: blue;" onclick="return confirm('Are you sure?')">Delete</a></td>
+                                    </tr>
+                                    <% }); %>
+
+                                    </tbody>
+                                </table>
+                                <% } %>
+
+        
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+
+        <%- contentFor('FooterJs') %>

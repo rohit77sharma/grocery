@@ -1,0 +1,98 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+
+    <!-- DataTables -->
+    <link href="public/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="public/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <!-- Responsive datatable examples -->
+    <link href="public/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+
+    <%- contentFor('body') %>
+
+        <!-- Start content -->
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Subcategories Table</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Subcategory Table</li>
+                            </ol>
+                            <form action="/addsubcategories" method="GET">
+                                <div class="state-information d-none d-sm-block">
+                                    <button
+                                        class="btn btn-danger btn-rounded btn-custom btn-block waves-effect waves-light">Add
+                                        Sub-Category</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <% if (da !=null) { %>
+
+                                <table id="datatable" class="table table-bordered dt-responsive nowrap"
+                                    style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Subcategory Name</th>
+                                            <th>Sub-Title</th>
+                                            <th>Main Category</th>
+                                            <th>Images</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% da.forEach(result=> { %>
+
+                                        <tr>
+                                            <td> <%= result.id %></td>
+                                            <td> <%= result.subcategoryname %> </td>
+                                            <td>  <%= result.subsubtitle %></td>
+                                            <td><%= result.maincategory %></td>
+                                            <td><%= result.images%></td>
+                                            <td><a href="subcategorydelete?id=<%= result.id%>" ; style="color: blue;" onclick="return confirm('Are you sure?')">Delete</a>
+                                                <a href="subcategoryedit?id=<%= result.id %>" ; style="color: blue; margin-left: 10px;" onclick="return confirm('Are you sure?')">Edit</a></td>
+                                        </tr>
+                                        <% }); %>
+
+                                    </tbody>
+                                </table>
+                                <% } %>
+
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+        <%- contentFor('FooterJs') %>
+            <!-- Required datatable js -->
+            <script src="public/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="public/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+            <!-- Buttons examples -->
+            <script src="public/plugins/datatables/dataTables.buttons.min.js"></script>
+            <script src="public/plugins/datatables/buttons.bootstrap4.min.js"></script>
+            <script src="public/plugins/datatables/jszip.min.js"></script>
+            <script src="public/plugins/datatables/pdfmake.min.js"></script>
+            <script src="public/plugins/datatables/vfs_fonts.js"></script>
+            <script src="public/plugins/datatables/buttons.html5.min.js"></script>
+            <script src="public/plugins/datatables/buttons.print.min.js"></script>
+            <script src="public/plugins/datatables/buttons.colVis.min.js"></script>
+            <!-- Responsive examples -->
+            <script src="public/plugins/datatables/dataTables.responsive.min.js"></script>
+            <script src="public/plugins/datatables/responsive.bootstrap4.min.js"></script>
+
+            <!-- Datatable init js -->
+            <script src="public/assets/pages/datatables.init.js"></script>

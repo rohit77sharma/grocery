@@ -1,0 +1,156 @@
+<%- contentFor('HeaderCss') %>
+    <!-- perticular page css -->
+
+
+    <%- contentFor('body') %>
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="page-title-box">
+                            <h4 class="page-title">Add Products</h4>
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Add Products</li>
+                            </ol>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end row -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card m-b-20">
+                            <div class="card-body">
+                                <form action="/productsubmit" enctype="multipart/form-data" method="POST">
+
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Product Name</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" placeholder="Product name"
+                                                name="productname">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Type</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="type">
+                                                <option>Packet</option>
+                                                <option>Loose</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Main Category</label>
+                                        <% if (data !=null) { %>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="maincategory">
+                                                    <% data.category.forEach(result=> { %>
+                                                        <option>
+                                                            <%= result.categorisename %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Sub-Category</label>
+                                        <% if(data !=null){ %>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="subcategory">
+                                                    <% data.subcategory.forEach(result2=> { %>
+                                                        <option>
+                                                            <%= result2.subcategoryname %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Unit</label>
+                                        <% if(data !=null){ %>
+
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="unit">
+                                                    <% data.units.forEach(result3=> { %>
+                                                        <option>
+                                                            <%= result3.unitcode %>
+                                                        </option>
+                                                        <% }); %>
+                                                </select>
+                                            </div>
+                                            <% } %>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Measurment</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="measurment"
+                                                placeholder="measurment">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Price</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="price" placeholder="price">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Stock
+                                        </label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="number" name="stock" placeholder="Stock">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Discount
+                                            Price</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" name="discountprice"
+                                                placeholder="Discount Price">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="example-date-input"
+                                            class="col-sm-2 col-form-label">Availability</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="available">
+                                                <option>Yes</option>
+                                                <option>No</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Description</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="text" name="descrition"
+                                                placeholder="Description">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Image</label>
+                                        <div class="col-sm-10">
+                                            <input class="form-control" type="file" name="images" accept="images/*" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group-row">
+                                        <button
+                                            class="btn btn-danger btn-rounded btn-custom btn-block waves-effect waves-light">Submit
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end row -->
+
+
+            </div> <!-- container-fluid -->
+
+        </div> <!-- content -->
+
+
+        <%- contentFor('FooterJs') %>
